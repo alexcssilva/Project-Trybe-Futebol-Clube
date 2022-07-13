@@ -1,5 +1,5 @@
 import * as express from 'express';
-
+import UserRouter from './router/user/user.routes';
 class App {
   public app: express.Express;
 
@@ -17,6 +17,8 @@ class App {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
       res.header('Access-Control-Allow-Headers', '*');
+
+      this.app.use(UserRouter);
       next();
     };
 
