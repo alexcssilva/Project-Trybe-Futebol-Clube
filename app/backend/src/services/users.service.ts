@@ -10,6 +10,7 @@ class User implements IUserService {
 
   async login(email: string, password: string): Promise<string | boolean> {
       const user = await this.model.findUser(email);
+
       if (!user) return false;
 
       const check = bcrypt.compareSync(password, user.password);
