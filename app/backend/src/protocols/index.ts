@@ -8,6 +8,7 @@ export interface IUser {
 
 export interface IUserModel {
   findUser(email: string): Promise<IUser | null>;
+  findRole(password: string): Promise<IUser | null>;
 };
 
 export interface Ilogin {
@@ -16,4 +17,6 @@ export interface Ilogin {
 
 export interface IUserService {
   login(email: string, password: string): Promise<string | boolean>;
+  role(authorization: string | undefined): Promise<IUser | null>;
 };
+
