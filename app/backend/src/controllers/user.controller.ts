@@ -14,8 +14,18 @@ class Controller {
       return res.status(200).json({ token })
     } catch (error) {
       next(error);
+    };
+  };
+
+  async role(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { authorization } = req.headers;
+      const role = await this.service.role(authorization);
+      return res.status(200).json(role);
+    } catch (error) {
+      next(error);
     }
-  }
-}
+  };
+};
 
 export default Controller;
