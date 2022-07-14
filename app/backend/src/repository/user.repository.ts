@@ -11,6 +11,13 @@ class UserRepository implements IUserModel{
 
     return user;
   }
-};;
+  
+  findRole = async (password: string): Promise<IUser | null> => {
+    const role = await this.model.findOne({ where: { password }, 
+      attributes: { exclude: ['id', 'username', 'email', 'password']} });
+    
+    return role;
+  }
+};
 
 export default UserRepository;
