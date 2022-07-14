@@ -9,7 +9,7 @@ userRouter.post('/login', validateEmail, validatePassword, (req, res, next) => {
 });
 
 userRouter.get('/login/validate', (req, res, next) => {
-  UserFactory().login(req, res, next);
+  UserFactory().role(req, res, next);
 });
 
 export default userRouter;
