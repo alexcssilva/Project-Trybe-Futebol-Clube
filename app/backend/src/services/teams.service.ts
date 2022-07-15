@@ -10,6 +10,12 @@ class Team implements ITeamService {
 
     return teams;
   }
+
+  async findTeam(id: string): Promise<ITeam | null> {
+    const team = await this.model.findTeam(id);
+
+    return team;
+  }
 };
 
 export default Team;
