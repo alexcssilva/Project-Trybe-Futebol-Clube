@@ -7,4 +7,8 @@ teamRouter.get('/teams', (req, res, next) => {
   TeamFactory().findAll(req, res, next);
 });
 
+teamRouter.get('/teams/:id', (req, res, next) => {
+  TeamFactory().findTeam(req, res, next);
+});
+
 export default teamRouter;
