@@ -11,6 +11,12 @@ class TeamRepository implements ITeamModel{
 
     return teams;
   }
+
+  findTeam = async (id: string): Promise<ITeam | null> => {
+    const team = await this.model.findOne({ where: { id }});
+
+    return team;
+  }
 };
 
 export default TeamRepository;
