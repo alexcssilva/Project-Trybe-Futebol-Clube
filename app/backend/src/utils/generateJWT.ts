@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import * as jwt from 'jsonwebtoken';
-import { IUser } from '../protocols';
+import { IUser } from '../protocols/user.protocol';
 
 function generateJWT(payload: Omit<IUser, 'password'>) {
   const secret = process.env.JWT_SECRET || 'jwt_secret';
