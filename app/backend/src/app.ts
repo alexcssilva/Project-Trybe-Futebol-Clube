@@ -1,6 +1,7 @@
 import * as express from 'express';
 import UserRouter from './router/user.routes';
 import TeamRouter from './router/team.routes';
+import MatchRouter from './router/match.routes';
 class App {
   public app: express.Express;
 
@@ -20,7 +21,8 @@ class App {
       res.header('Access-Control-Allow-Headers', '*');
 
       this.app.use(UserRouter);
-      this.app.use(TeamRouter)
+      this.app.use(TeamRouter);
+      this.app.use(MatchRouter);
       next();
     };
 
