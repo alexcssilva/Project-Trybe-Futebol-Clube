@@ -1,5 +1,5 @@
 import Model from '../database/models/user.model';
-import { IUser, IUserModel } from '../protocols';
+import { IUser, IUserModel } from '../protocols/user.protocol';
 
 class UserRepository implements IUserModel{
   constructor(private model = Model){
