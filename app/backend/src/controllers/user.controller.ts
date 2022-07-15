@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { IUserService } from '../protocols';
+import { IUserService } from '../protocols/user.protocol';
 
 class Controller {
   constructor(private service: IUserService) {
