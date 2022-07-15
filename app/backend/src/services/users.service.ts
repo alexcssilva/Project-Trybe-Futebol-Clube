@@ -2,7 +2,7 @@ import 'dotenv/config';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import generateJWT from '../utils/generateJWT';
-import { IUserService, IUserModel } from '../protocols';
+import { IUserService, IUserModel } from '../protocols/user.protocol';
 
 class User implements IUserService {
   constructor(private model: IUserModel) {
