@@ -5,9 +5,11 @@ export interface ITeam {
 
 export interface ITeamModel {
   findAll(): Promise<ITeam[] | null>;
+  findTeam(id: string): Promise<ITeam | null>;
 };
 
 export interface ITeamService {
   findAll(): Promise<ITeam[] | null>;
+  findTeam(id: string): Promise<ITeam | null>;
 };
 
