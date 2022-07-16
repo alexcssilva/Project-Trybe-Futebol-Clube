@@ -10,11 +10,8 @@ class MatchController {
     try {
       const { inProgress } = req.query;
       let teamProgress = null;
-      if (inProgress === 'false') {
-        return teamProgress = false;
-      } else {
-        teamProgress = true;
-      }
+      if (inProgress === 'false') teamProgress = false;
+      if (inProgress === 'true') teamProgress = true;
       const matches = await this.service.findAll(teamProgress);
       return res.status(200).json(matches);
     } catch (error) {
