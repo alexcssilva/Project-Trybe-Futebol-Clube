@@ -9,9 +9,11 @@ export interface IMatch {
 
 export interface IMatchModel {
   findAll(inProgress: boolean | null): Promise<IMatch[] | null>;
+  createMatch(match: IMatch): Promise<IMatch>;
 };
 
 export interface IMatchService {
   findAll(inProgress: boolean | null): Promise<IMatch[] | null>;
+  updateMatch(match: IMatch): Promise<IMatch>;
 };
 
