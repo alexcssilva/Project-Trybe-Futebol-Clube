@@ -38,6 +38,12 @@ class MatchRepository implements IMatchModel{
 
     return matches;
   }
+
+  updatePatch = async (id: string): Promise<unknown> => {
+    const match = await this.model.update({ inProgress: false }, { where: { id }})
+
+    return match;
+  }
 };
 
 export default MatchRepository;
