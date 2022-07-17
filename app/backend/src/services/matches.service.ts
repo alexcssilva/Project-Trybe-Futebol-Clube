@@ -16,6 +16,12 @@ class Match implements IMatchService {
 
     return matches;
   }
+
+  async updatePatch(id: string): Promise<unknown> {
+    const match = await this.model.updatePatch(id);
+    
+    return match;
+  }
 };
 
 export default Match;
