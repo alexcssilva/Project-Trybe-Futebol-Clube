@@ -4,7 +4,7 @@ import { IMatchService } from '../protocols/match.protocol';
 class MatchController {
   constructor(private service: IMatchService) {
     this.service = service;
-  };
+  }
 
   async findAll(req: Request, res: Response, next: NextFunction) {
     try {
@@ -17,7 +17,7 @@ class MatchController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async createMatch(req: Request, res: Response, next: NextFunction) {
     try {
@@ -36,9 +36,21 @@ class MatchController {
 
       return res.status(200).json({ message: 'Finished' });
     } catch (error) {
-      next(error)
+      next(error);
     }
-  };
-};
+  }
+
+  async scoreUpdate(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      const { homeTeamGoals, awayTeamGoals } = req.body;
+      await this.service.scoreUpdate(homeTeamGoals, awayTeamGoals, id);
+
+      return res.status(200).json({ message: 'Update Success' });
+    } catch (error) {
+      next(error);
+    }
+  }
+}
 
 export default MatchController;
