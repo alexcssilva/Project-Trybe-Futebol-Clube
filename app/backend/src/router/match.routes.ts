@@ -13,8 +13,12 @@ matchRouter.post('/matches', validateJWT, validateMatch, (req, res, next) => {
   MatchFactory().createMatch(req, res, next);
 });
 
-matchRouter.patch('/matches/:id/finish', validateMatch, (req, res, next) => {
+matchRouter.patch('/matches/:id/finish', (req, res, next) => {
   MatchFactory().updatePatch(req, res, next);
+});
+
+matchRouter.patch('/matches/:id', (req, res, next) => {
+  MatchFactory().scoreUpdate(req, res, next);
 });
 
 export default matchRouter;
