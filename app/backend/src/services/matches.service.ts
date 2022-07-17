@@ -10,6 +10,12 @@ class Match implements IMatchService {
 
     return matches;
   }
+
+  async updateMatch(match: IMatch): Promise<IMatch> {
+    const matches = await this.model.createMatch(match);
+
+    return matches;
+  }
 };
 
 export default Match;
